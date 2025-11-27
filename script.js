@@ -45,7 +45,6 @@ function formatTime(date) {
   return date.toLocaleTimeString("en-GB", { hour12: false });
 }
 
-// MAIN SIGNAL LOGIC
 function generateSignal(price) {
   const prices = priceHistory.map(p => p.price);
   const rsi = computeRSI(prices, RSI_PERIOD);
@@ -55,9 +54,6 @@ function generateSignal(price) {
   return "WAIT";
 }
 
-// =======================
-// UPDATE UI
-// =======================
 function updateUI(price) {
   document.getElementById("priceValue").textContent = price.toFixed(2);
   document.getElementById("lastUpdated").textContent = formatTime(new Date());
@@ -71,7 +67,6 @@ function updateUI(price) {
 
   const signalEl = document.getElementById("signalText");
   signalEl.textContent = signal;
-
   signalEl.className = "signal-tag signal-" + signal.toLowerCase();
 }
 
@@ -98,16 +93,12 @@ socket.onmessage = function (msg) {
 
   const price = parseFloat(data.price);
 
-  // Save to history
   priceHistory.push({ time: new Date(), price });
-
   if (priceHistory.length > 500) priceHistory.shift();
 
-  // Update EMAs
   emaFast = calculateEMA(emaFast, price, EMA_FAST_PERIOD);
   emaSlow = calculateEMA(emaSlow, price, EMA_SLOW_PERIOD);
 
-  // Update UI
   updateUI(price);
 };
 
