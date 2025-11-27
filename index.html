@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XAUUSD Scalper Dashboard (Free)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span>XAUUSD Scalper</span>
+    </div>
+    <div class="topbar-right">
+      <span class="pill pill-warning">Free • Experimental • Not financial advice</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <!-- MAIN LIVE CARD -->
+      <div class="card card-main">
+        <h2>Live XAUUSD</h2>
+
+        <div class="price-row">
+          <div class="price-main">
+            <span class="currency">XAU / USD</span>
+            <span id="priceValue" class="price-value">--</span>
+          </div>
+          <div class="price-metrics">
+            <span id="change1m" class="chip chip-neutral">1m: --</span>
+          </div>
+        </div>
+
+        <div class="meta-row">
+          <span class="meta-label">Last update:</span>
+          <span id="lastUpdated" class="meta-value">--</span>
+        </div>
+
+        <div class="signal-box">
+          <div class="signal-header">
+            <span>Scalper view</span>
+          </div>
+          <div class="signal-main">
+            <span id="signalText" class="signal-tag signal-wait">WAIT</span>
+          </div>
+          <div id="trendText" class="trend-text">
+            Waiting for data…
+          </div>
+          <div id="signalReason" class="signal-reason">
+            Collecting price history to build indicators.
+          </div>
+        </div>
+      </div>
+
+      <!-- INDICATORS CARD -->
+      <div class="card">
+        <h2>Micro Indicators</h2>
+        <ul class="stats-list">
+          <li>
+            <span>EMA (9)</span>
+            <span id="emaFastValue" class="stat-value">--</span>
+          </li>
+          <li>
+            <span>EMA (21)</span>
+            <span id="emaSlowValue" class="stat-value">--</span>
+          </li>
+          <li>
+            <span>RSI (14)</span>
+            <span id="rsiValue" class="stat-value">--</span>
+          </li>
+          <li>
+            <span>Short-term Volatility</span>
+            <span id="volatilityValue" class="stat-value">--</span>
+          </li>
+        </ul>
+        <p class="hint">
+          EMAs & RSI are calculated from mini price history inside the browser.
+          You can tune all periods in <code>script.js</code>.
+        </p>
+      </div>
+
+      <!-- NEWS CARD -->
+      <div class="card card-news">
+        <h2>Gold / XAUUSD News</h2>
+        <ul id="newsList" class="news-list">
+          <li class="news-empty">Connect a news API in <code>script.js</code> to see headlines.</li>
+        </ul>
+        <p class="hint">
+          This area can show latest gold / XAU headlines (optional).
+        </p>
+      </div>
+
+      <!-- SIGNAL HISTORY -->
+      <div class="card">
+        <h2>Signal History (Last 20)</h2>
+        <ul id="signalHistory" class="signal-history">
+          <li class="history-empty">No signals yet.</li>
+        </ul>
+      </div>
+
+      <!-- ABOUT XAUUSD -->
+      <div class="card">
+        <h2>About XAUUSD</h2>
+        <p>
+          <strong>XAUUSD</strong> is the spot price of gold in US dollars.
+          It is highly volatile and reacts strongly to:
+        </p>
+        <ul class="about-list">
+          <li>US interest rates and Federal Reserve expectations.</li>
+          <li>Inflation data and real yields.</li>
+          <li>Risk-on / risk-off market sentiment.</li>
+          <li>US dollar strength / weakness.</li>
+          <li>Geopolitical risk and macro news.</li>
+        </ul>
+        <p class="hint">
+          This dashboard is for learning and experimentation only.
+          Always backtest and demo-trade before risking real money.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Free XAUUSD scalper dashboard.</span>
+    <span>Use at your own risk.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
